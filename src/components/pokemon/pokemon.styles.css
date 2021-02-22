@@ -1,0 +1,13 @@
+.pokebox {
+    background-color: tomato;
+}
+
+.pokestats {
+    display: flex;
+    flex-direction: row;
+    background-color: turquoise;
+}
+
+.stats1, .stats2 {
+    flex: 1;
+}
