@@ -1,9 +1,11 @@
-.pokestats {
-    display: flex;
-    flex-direction: row;
-    background-color: turquoise;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
+
+:root {
+    --big: 'Poppins', sans-serif;
+    --small: 'Open Sans', sans-serif;
 }
 
-.stats1, .stats2 {
-    flex: 1;
+h3 {
+    margin: 0.3rem 0rem;
+    font-family: var(--small);
 }

@@ -1,13 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
+
+:root {
+    --big: 'Poppins', sans-serif;
+    --small: 'Open Sans', sans-serif;
+}
+
 .pokebox {
-    background-color: tomato;
+    border: 10px solid black;
 }
 
 .pokestats {
     display: flex;
     flex-direction: row;
-    background-color: turquoise;
+    width: 100%;
+    justify-content: center;
 }
 
 .stats1, .stats2 {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    padding: 2rem;
+    background-color: #EEEE;
+}
+
+input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    width: 50%;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: tomato;
+    color: white;
+    border: none;
+    outline: none;
+    transition-property: all;
+    transition-duration: 0.5s;
+    margin: 0rem 1rem;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgba(255, 99, 71, 0.7);
+}
+
+img {
+    width: 20%;
+}
+
+.pokeinfo {
+    padding: 3rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: var(--big);
+    letter-spacing: 3px;
+}
+
+h2 {
+    font-family: var(--big);
+    letter-spacing: 3px;
+}
+
+.statsheading {
+    padding: 1rem 0rem;
+}
+
+.errorheading {
+    color: red;
 }

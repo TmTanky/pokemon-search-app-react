@@ -5,7 +5,40 @@
 }
 
 .app {
-    padding: 3rem;
+    padding: 1rem;
     min-height: 100vh;
-    background-color: violet;
+    background-color: whitesmoke;
+}
+
+@media screen and (max-width: 800px) {
+    img {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    img {
+        width: 50%;
+    }
+
+    h3 {
+        font-size: 0.8rem;
+    }
+
+    form {
+        padding: 1.5rem 0.5rem 1rem 0.5rem;
+    }
+
+    input {
+        width: 60%;
+    }
+
+    .errorheading {
+        font-size: 1rem;
+        margin: 0rem 1rem;
+    } 
+
+    .statsheading h2 {
+        font-size: 1.3rem;
+    }
 }

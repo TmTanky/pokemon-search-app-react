@@ -15,7 +15,8 @@ class Pokemons extends Component {
             queryPokemon: "",
             pokemonName: null,
             pokemonImg: null,
-            pokemonStats: []
+            pokemonStats: [],
+            errors: null
         }
     }
 
@@ -41,21 +42,26 @@ class Pokemons extends Component {
 
     getQueryPokemon = async () => {
 
-        const searchingPokemon = this.state.queryPokemon
+        try {
+            const searchingPokemon = this.state.queryPokemon
 
-        const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchingPokemon}`)
-        const newData = await data.json()
+            const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchingPokemon}`)
+            const newData = await data.json()
         
-        this.setState({ pokemonName: newData.name.toUpperCase() })
+            this.setState({ pokemonName: newData.name.toUpperCase() })
 
-        const imgUrl =  newData.forms[0].url
-        const dataImg = await fetch(imgUrl)
-        const parseImg = await dataImg.json()
+            const imgUrl =  newData.forms[0].url
+            const dataImg = await fetch(imgUrl)
+            const parseImg = await dataImg.json()
 
-        const pokemonImage = parseImg.sprites.front_default
-        this.setState({ pokemonImg: pokemonImage})
+            const pokemonImage = parseImg.sprites.front_default
+            this.setState({ pokemonImg: pokemonImage})
 
-        this.setState({ pokemonStats: newData.stats})
+            this.setState({ pokemonStats: newData.stats})
+            this.setState({ errors: null})
+        } catch (err) {
+            this.setState({ errors: "Not a pokemon." })
+        }
 
     }
 
@@ -74,6 +80,7 @@ class Pokemons extends Component {
 
         console.log(this.state.queryPokemon)
         this.getQueryPokemon()
+        this.setState({queryPokemon: ""})
     }
 
     handleInput = e => {
@@ -83,22 +90,31 @@ class Pokemons extends Component {
         this.setState({ queryPokemon: input })
     }
 
-    render() {
+render() {
 
-        return (
-            <div className="pokebox">
+    return (
+        <div className="pokebox">
                 <form onSubmit={this.handleSubmit}>
+                    
+                    { this.state.errors ? <h2 className="errorheading"> Not a Pokemon. </h2> : <h1> </h1> }
+
                    <input type="text" name="pokemon" onChange={this.handleInput} value={this.state.queryPokemon} />
                    <button type="submit"> Search </button>
                 </form>
 
+            <div className="pokeinfo">
                 <h1> {this.state.pokemonName} </h1>
                 <img src={this.state.pokemonImg} alt="pokemon"/>
+
+                <div className="statsheading">
+                    <h1> Stats </h1>
+                </div>
 
                 <div className="pokestats">
                     <div className="stats1">
                         {this.state.pokemonStats.slice(0,3).map((item, index) => {
-                            return <Stat item={item} key={index}> </Stat>
+                            // console.log(item.stat.name)
+                            return <Stat item={item} key={index} > {item.stat.name} </Stat>
                         })}
                     </div>
 
@@ -109,6 +125,7 @@ class Pokemons extends Component {
                     </div>
                 </div>
             </div>
+        </div>
         )
     }
 }
