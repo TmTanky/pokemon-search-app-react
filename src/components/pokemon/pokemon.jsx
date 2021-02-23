@@ -84,7 +84,6 @@ class Pokemons extends Component {
     }
 
     handleInput = e => {
-        // const { value, name } = e.target
 
         const input = e.target.value.toLowerCase()
         this.setState({ queryPokemon: input })
@@ -96,7 +95,7 @@ render() {
         <div className="pokebox">
                 <form onSubmit={this.handleSubmit}>
                     
-                    { this.state.errors ? <h2 className="errorheading"> Not a Pokemon. </h2> : <h1> </h1> }
+                    { this.state.errors ? <h2 className="errorheading"> Not a Pokemon. </h2> : null }
 
                    <input type="text" name="pokemon" onChange={this.handleInput} value={this.state.queryPokemon} />
                    <button type="submit"> Search </button>
@@ -113,7 +112,7 @@ render() {
                 <div className="pokestats">
                     <div className="stats1">
                         {this.state.pokemonStats.slice(0,3).map((item, index) => {
-                            // console.log(item.stat.name)
+
                             return <Stat item={item} key={index} > {item.stat.name} </Stat>
                         })}
                     </div>

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
+
+:root {
+    --big: 'Poppins', sans-serif;
+    --small: 'Open Sans', sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: #EEEE;
+}
+
+.logones {
+    width: 55px;
+}
+
+.navlogo, .navlinks {
+    display: flex;
+}
+
+span {
+    display: flex;
+    align-items: center;
+}
+
+.navlogo {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.navlinks {
+    flex: 3;
+    margin: auto 0rem;
+    justify-content: flex-end;
+}
+
+.navlinks a {
+    text-decoration: none;
+    font-family: var(--small);
+    margin: auto 1rem;
+    color: black;
+}
+
+.navlinks li {
+    list-style: none;
+}
