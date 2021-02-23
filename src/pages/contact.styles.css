@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
+
+:root {
+    --big: 'Poppins', sans-serif;
+    --small: 'Open Sans', sans-serif;
+}
+
+.footerbox {
+    padding: 2rem 1rem;
+}
+
+.footerbox h1 {
+    margin: 2rem 0rem;
+    font-size: 3rem
+}
+
+.footerbox p {
+    font-family: var(--small);
+    font-size: 2rem;
+}
